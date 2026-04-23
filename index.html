@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Arif - Web & Mobile Programmer | COO @ Shift Digital Indonesia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Universe Canvas Background -->
+    <canvas id="universeCanvas"></canvas>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" id="profileLogo">
+                <img src="public/images/foto-profil.png" alt="Muhammad Arif" class="logo-img">
+                <span class="logo-text">Muhammad Arif</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#roles" class="nav-link">Experience</a></li>
+                <li><a href="#tech" class="nav-link">Tech Stack</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section section-reveal">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h1 class="hero-name">Muhammad Arif</h1>
+                    <div class="hero-subtitle">
+                        <span id="typingText"></span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+                    <p class="hero-description">
+                        Passionate about building scalable web applications and leading digital transformation. 
+                        Currently pursuing D3 Teknik Informatika (Semester 4) while managing operations at Shift Digital Indonesia.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span>Let's Collaborate</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="btn btn-secondary" id="downloadCV">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 3v10m0 0l-4-4m4 4l4-4M3 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="profile-glow-wrapper">
+                        <img src="public/images/foto-profil.png" alt="Muhammad Arif" class="hero-profile-img">
+                    </div>
+                    <div class="code-box">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                            <span class="code-title">portfolio.js</span>
+                        </div>
+                        <pre class="code-content"><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-prop">name</span>: <span class="code-string">'Muhammad Arif'</span>,
+  <span class="code-prop">role</span>: <span class="code-string">'COO'</span>,
+  <span class="code-prop">company</span>: <span class="code-string">'Shift Digital'</span>,
+  <span class="code-prop">skills</span>: [<span class="code-string">'PHP'</span>, <span class="code-string">'Laravel'</span>, <span class="code-string">'JS'</span>],
+  <span class="code-prop">passion</span>: <span class="code-string">'Building Solutions'</span>
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roles & Experience Section -->
+        <section id="roles" class="roles-section section-reveal">
+            <h2 class="section-title">Roles & Experience</h2>
+            <p class="section-subtitle">Leadership positions and professional journey</p>
+            <div class="roles-grid">
+                <!-- Role Card 1 -->
+                <div class="role-card">
+                    <div class="role-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" stroke="#2F2FE4" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="8" fill="#2F2FE4"/>
+                        </svg>
+                    </div>
+                    <h3 class="role-title">COO at Shift Digital Indonesia</h3>
+                    <p class="role-company">Shift Digital Indonesia</p>
+                    <p class="role-description">
+                        Leading agency operations, client management, and digital transformation projects. 
+                        Overseeing project delivery, team coordination, and strategic business development.
+                    </p>
+                    <div class="role-tags">
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Client Management</span>
+                        <span class="tag">Operations</span>
+                    </div>
+                </div>
+
+                <!-- Role Card 2 -->
+                <div class="role-card">
+                    <div class="role-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="32" height="32" rx="4" stroke="#2F2FE4" stroke-width="2"/>
+                            <path d="M16 24h16M24 16v16" stroke="#2F2FE4" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="role-title">Koordinator Daerah Kalsel</h3>
+                    <p class="role-company">PERMIKOMNAS</p>
+                    <p class="role-description">
+                        Coordinating IT student associations across South Kalimantan. 
+                        Facilitating collaboration, organizing events, and building tech community networks.
+                    </p>
+                    <div class="role-tags">
+                        <span class="tag">Community</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">Events</span>
+                    </div>
+                </div>
+
+                <!-- Role Card 3 -->
+                <div class="role-card">
+                    <div class="role-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="16" stroke="#2F2FE4" stroke-width="2"/>
+                            <path d="M24 12v12l8 4" stroke="#2F2FE4" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="role-title">Koordinator PSDM</h3>
+                    <p class="role-company">HIMA TI Polihasnur</p>
+                    <p class="role-description">
+                        Managing human resource development programs for IT students. 
+                        Organizing training sessions, workshops, and skill development initiatives.
+                    </p>
+                    <div class="role-tags">
+                        <span class="tag">Training</span>
+                        <span class="tag">Development</span>
+                        <span class="tag">Mentoring</span>
+                    </div>
+                </div>
+
+                <!-- Role Card 4 -->
+                <div class="role-card">
+                    <div class="role-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M12 16h24M12 24h24M12 32h16" stroke="#2F2FE4" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="role-title">D3 Teknik Informatika Student</h3>
+                    <p class="role-company">Semester 4 | GPA: 3.67/4.00</p>
+                    <p class="role-description">
+                        Pursuing diploma in Informatics Engineering with focus on web development, 
+                        database management, and software engineering principles.
+                    </p>
+                    <div class="role-tags">
+                        <span class="tag">Academic</span>
+                        <span class="tag">Research</span>
+                        <span class="tag">Learning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech" class="tech-section section-reveal">
+            <h2 class="section-title">Tech Stack & Skills</h2>
+            <p class="section-subtitle">Technologies and tools I work with</p>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">💻</div>
+                    <h3 class="tech-name">PHP</h3>
+                    <p class="tech-level">Advanced</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🚀</div>
+                    <h3 class="tech-name">Laravel</h3>
+                    <p class="tech-level">Advanced</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">📄</div>
+                    <h3 class="tech-name">HTML</h3>
+                    <p class="tech-level">Expert</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🎨</div>
+                    <h3 class="tech-name">CSS</h3>
+                    <p class="tech-level">Expert</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h3 class="tech-name">JavaScript</h3>
+                    <p class="tech-level">Advanced</p>
+                </div>
+                <div class="tech-card special-card">
+                    <div class="tech-icon">✨</div>
+                    <h3 class="tech-name">Vibe Coding & AI-Assisted Development</h3>
+                    <p class="tech-level">Modern Gen Z Efficiency</p>
+                    <div class="special-badge">Featured</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="projects-section section-reveal">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Showcasing impactful work and solutions</p>
+            <div class="projects-grid">
+                <!-- Masterpiece Project -->
+                <div class="project-card masterpiece">
+                    <div class="project-badge">Masterpiece</div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            Aplikasi Manajemen Anggaran & Pengendalian Pengeluaran UMKM Berbasis Web dengan Workflow Otorisasi Transaksi
+                        </h3>
+                        <p class="project-description">
+                            Comprehensive budget management system for SMEs featuring automated transaction authorization workflow, 
+                            real-time expense tracking, multi-level approval system, and detailed financial reporting. 
+                            Built to streamline financial operations and improve budget control for small businesses.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">100+</span>
+                                <span class="stat-label">Users</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">5</span>
+                                <span class="stat-label">Modules</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">3-Level</span>
+                                <span class="stat-label">Authorization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Shift Digital Indonesia Portfolio</h3>
+                        <p class="project-description">
+                            Agency showcase platform featuring client portfolios, service offerings, and case studies. 
+                            Modern design with smooth animations and responsive layout.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">LMS Pondok Pesantren</h3>
+                        <p class="project-description">
+                            Learning Management System designed for Islamic boarding schools. 
+                            Features course management, student tracking, and assessment tools.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Vue.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-reveal">
+            <div class="contact-container">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Ready to bring your ideas to life</p>
+                <div class="contact-grid">
+                    <a href="mailto:your.email@example.com" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M4 8l12 8 12-8M4 24V8l12 8 12-8v16H4z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Email</h3>
+                        <p>your.email@example.com</p>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                                <path d="M16 2a14 14 0 00-4.43 27.28c.7.13.96-.3.96-.67v-2.38c-3.89.84-4.71-1.88-4.71-1.88a3.71 3.71 0 00-1.56-2.05c-1.27-.87.1-.85.1-.85a2.94 2.94 0 012.14 1.45 3 3 0 004.08 1.16 2.93 2.93 0 01.88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4 5.4 0 011.44-3.76 5 5 0 01.14-3.7s1.17-.38 3.85 1.43a13.3 13.3 0 017 0c2.67-1.81 3.84-1.43 3.84-1.43a5 5 0 01.14 3.7 5.4 5.4 0 011.44 3.76c0 5.38-3.27 6.56-6.39 6.91a3.33 3.33 0 01.95 2.59v3.84c0 .46.25.81.96.67A14 14 0 0016 2z"/>
+                            </svg>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>@yourusername</p>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                                <path d="M8.64 28H3.36V11.2h5.28V28zM6 9.28A3.07 3.07 0 119.07 6.2 3.07 3.07 0 016 9.28zM28 28h-5.27v-8.16c0-1.95 0-4.46-2.72-4.46s-3.14 2.12-3.14 4.32V28h-5.28V11.2h5.07v2.3h.07a5.56 5.56 0 015-2.75c5.35 0 6.34 3.52 6.34 8.1V28z"/>
+                            </svg>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p>Muhammad Arif</p>
+                    </a>
+                    <a href="https://wa.me/62XXXXXXXXXX" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                                <path d="M16 2C8.28 2 2 8.28 2 16c0 2.52.68 4.88 1.86 6.92L2 30l7.24-1.9A13.95 13.95 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.21 19.38c-.3.84-1.47 1.54-2.41 1.75-.64.14-1.48.25-4.3-.92-3.6-1.5-5.92-5.18-6.1-5.42-.17-.24-1.43-1.9-1.43-3.63s.91-2.57 1.23-2.92c.32-.35.7-.44 1.02-.44.25 0 .48.01.69.01.22 0 .52-.08.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.35.93 1.54 2 2.49 1.38 1.23 2.54 1.61 2.9 1.79.35.18.56.15.77-.09.21-.24.9-1.05 1.14-1.41.24-.35.48-.29.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.71z"/>
+                            </svg>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>+62 XXX XXXX XXXX</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Muhammad Arif. Built with passion and modern web technologies.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <button class="fab" id="zenModeBtn" title="Toggle Zen Mode">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="fab" id="themeToggleBtn" title="Toggle Theme">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="fab" id="backToTopBtn" title="Back to Top">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 19V5m0 0l-7 7m7-7l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Confetti Container (for Easter Egg) -->
+    <div id="confettiContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
