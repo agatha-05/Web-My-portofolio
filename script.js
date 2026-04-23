@@ -503,42 +503,6 @@ class EasterEgg {
     }
 }
 
-// ===== DOWNLOAD CV HANDLER =====
-class DownloadCV {
-    constructor() {
-        this.btn = document.getElementById('downloadCV');
-        this.btn.addEventListener('click', (e) => this.handleDownload(e));
-    }
-    
-    handleDownload(e) {
-        e.preventDefault();
-        
-        // Show notification
-        const notification = document.createElement('div');
-        notification.textContent = 'CV Download will be available soon!';
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 1rem 2rem;
-            background: var(--primary-glow);
-            color: white;
-            border-radius: 12px;
-            font-weight: 600;
-            z-index: 10000;
-            animation: slideIn 0.3s ease;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
-        }, 2000);
-    }
-}
-
 // ===== 3D CARD TILT EFFECT =====
 class CardTilt {
     constructor() {
@@ -630,11 +594,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const typingElement = document.getElementById('typingText');
     if (typingElement) {
         new TypingEffect(typingElement, [
-            'Web & Mobile Programmer',
-            'IT Student',
-            'COO @ Shift Digital Indonesia',
-            'Full Stack Developer',
-            'Tech Enthusiast'
+            'Web Developer',
+            'Founder & COO @ Shift Digital Indonesia',
+            'Mahasiswa D3 Teknik Informatika',
+            'Koordinator Daerah PERMIKOMNAS Kalsel',
+            'Koordinator PSDM HIMA TI',
+            'Open for Internship'
         ], 80);
     }
     
@@ -655,9 +620,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize Easter Egg
     new EasterEgg();
-    
-    // Initialize Download CV
-    new DownloadCV();
     
     // Initialize Card Tilt
     new CardTilt();
