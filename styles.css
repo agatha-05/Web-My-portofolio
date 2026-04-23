@@ -992,44 +992,339 @@ section {
 }
 
 @media (max-width: 768px) {
+    /* Global/Body */
+    body {
+        overflow-x: hidden;
+    }
+    
+    section {
+        padding: 3rem 1rem;
+    }
+    
+    /* Navbar */
     .nav-container {
-        padding: 1rem;
+        padding: 0.875rem 1rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-logo {
+        flex-shrink: 0;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .logo-img {
+        width: 35px;
+        height: 35px;
     }
     
     .nav-menu {
         gap: 0.25rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .nav-menu::-webkit-scrollbar {
+        display: none;
     }
     
     .nav-link {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        min-height: auto;
+        padding: 2rem 1rem;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        flex-direction: column-reverse;
+        display: flex;
+    }
+    
+    .hero-left {
+        text-align: center;
+        order: 2;
+    }
+    
+    .hero-right {
+        order: 1;
     }
     
     .hero-name {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        line-height: 1.2;
     }
     
     .hero-subtitle {
+        font-size: 1.125rem;
+        min-height: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        text-align: center;
+        margin: 0 auto 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .profile-glow-wrapper {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+    }
+    
+    .code-box {
+        padding: 1rem;
+    }
+    
+    .code-content {
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-size: 1.875rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Roles Section */
+    .roles-section {
+        padding: 3rem 1rem;
+    }
+    
+    .roles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .role-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .role-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .role-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .role-title {
         font-size: 1.25rem;
     }
     
-    .section-title {
-        font-size: 2rem;
+    .role-description {
+        font-size: 0.9rem;
     }
     
-    .roles-grid,
+    /* Education Section */
+    .education-section {
+        padding: 3rem 1rem;
+    }
+    
+    .education-card {
+        flex-direction: column;
+        padding: 1.5rem;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .education-icon {
+        margin: 0 auto;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .education-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .education-degree {
+        font-size: 1.5rem;
+    }
+    
+    .education-school {
+        font-size: 1.125rem;
+    }
+    
+    .education-gpa {
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .gpa-value {
+        font-size: 1.25rem;
+    }
+    
+    .education-description {
+        font-size: 0.9rem;
+    }
+    
+    .education-tags {
+        justify-content: center;
+    }
+    
+    /* Tech Stack Section */
+    .tech-section {
+        padding: 3rem 1rem;
+    }
+    
     .tech-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .tech-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .tech-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .tech-icon {
+        font-size: 2.5rem;
+    }
+    
+    .tech-name {
+        font-size: 1rem;
+    }
+    
+    .special-card {
+        grid-column: span 1;
+    }
+    
+    /* Projects Section */
+    .projects-section {
+        padding: 3rem 1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .project-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .project-title {
+        font-size: 1.375rem;
+    }
+    
+    .project-description {
+        font-size: 0.9rem;
+    }
+    
+    .project-tech {
+        gap: 0.5rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.875rem;
     }
     
     .project-stats {
         grid-template-columns: 1fr;
         gap: 1rem;
+        padding: 1rem;
     }
     
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+        padding: 3rem 1rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-card h3 {
+        font-size: 1.125rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.875rem;
+        word-break: break-word;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 2rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Floating Action Buttons */
     .fab-container {
         bottom: 1rem;
         right: 1rem;
+        gap: 0.75rem;
     }
     
     .fab {
@@ -1037,22 +1332,134 @@ section {
         height: 48px;
     }
     
+    .fab svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Canvas */
+    #universeCanvas {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+    }
+    
+    /* Glassmorphism Adjustments */
+    .role-card,
+    .tech-card,
+    .project-card,
+    .contact-card,
     .education-card {
-        flex-direction: column;
-        padding: 2rem;
-        text-align: center;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
     }
     
-    .education-icon {
-        margin: 0 auto;
+    /* Reduce aggressive 3D effects on touch */
+    .role-card:active,
+    .tech-card:active,
+    .project-card:active,
+    .contact-card:active {
+        transform: scale(0.98);
     }
     
-    .education-degree {
-        font-size: 1.5rem;
+    /* Tags */
+    .tag {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.875rem;
     }
     
-    .education-gpa {
-        justify-content: center;
+    /* Confetti Container */
+    #confettiContainer {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    /* Main Content */
+    .main-content {
+        padding-top: 70px;
+    }
+    
+    /* Ensure no horizontal overflow */
+    * {
+        max-width: 100%;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small devices */
+    .hero-name {
+        font-size: 1.875rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.625rem;
+    }
+    
+    .nav-container {
+        padding: 0.75rem 0.875rem;
+    }
+    
+    .logo-text {
+        display: none;
+    }
+    
+    .logo-img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    .profile-glow-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .code-box {
+        padding: 0.875rem;
+    }
+    
+    .code-content {
+        font-size: 0.7rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .role-card,
+    .tech-card,
+    .project-card,
+    .contact-card,
+    .education-card {
+        padding: 1.25rem;
+    }
+    
+    .fab {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .fab svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    section {
+        padding: 2.5rem 0.875rem;
     }
 }
 
