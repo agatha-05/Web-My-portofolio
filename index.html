@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,18 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Noise Texture Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Scanline Overlay -->
+    <div class="scanline-overlay"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Animated Universe Canvas Background -->
     <canvas id="universeCanvas"></canvas>
     
@@ -17,17 +26,23 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo" id="profileLogo">
-                <img src="public/images/foto-profil.png" alt="Muhammad Arif" class="logo-img">
+                <img src="public/images/foto-profile.png" alt="Muhammad Arif" class="logo-img">
                 <span class="logo-text">Muhammad Arif</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#hero" class="nav-link active">Home</a></li>
-                <li><a href="#roles" class="nav-link">Experience</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#tech" class="nav-link">Tech Stack</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <div class="nav-clock" id="navClock">
+                    <span class="clock-label">SYS_TIME:</span>
+                    <span class="clock-value" id="clockValue">00:00:00</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-link active">[Home]</a></li>
+                    <li><a href="#roles" class="nav-link">[Experience]</a></li>
+                    <li><a href="#education" class="nav-link">[Education]</a></li>
+                    <li><a href="#tech" class="nav-link">[Tech Stack]</a></li>
+                    <li><a href="#projects" class="nav-link">[Projects]</a></li>
+                    <li><a href="#contact" class="nav-link">[Contact]</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -37,30 +52,42 @@
         <section id="hero" class="hero-section section-reveal">
             <div class="hero-container">
                 <div class="hero-left">
-                    <h1 class="hero-name">Muhammad Arif</h1>
+                    <h1 class="hero-name cyber-glitch" data-text="Muhammad Arif">Muhammad Arif</h1>
                     <div class="hero-subtitle">
+                        <span class="terminal-prefix">&gt;_</span>
                         <span id="typingText"></span>
                         <span class="typing-cursor">|</span>
                     </div>
                     <p class="hero-description">
-                        Mahasiswa D3 Teknik Informatika semester 4 di Politeknik Hasnur yang fokus pada pengembangan website. 
+                        <span class="desc-label">root@portfolio:~$</span> Mahasiswa D3 Teknik Informatika semester 4 di Politeknik Hasnur yang fokus pada pengembangan website. 
                         Mempelajari JavaScript dan PHP dengan framework Laravel. Memiliki pengalaman kepemimpinan dalam 
                         pengelolaan SDM organisasi mahasiswa dan aktif memimpin ekosistem digital lokal sebagai Koordinator Daerah komunitas IT.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
+                        <a href="#contact" class="btn btn-primary cyber-chamfer-sm">
                             <span>Let's Collaborate</span>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="btn btn-glitch cyber-chamfer-sm" id="downloadCV">
+                            <span>Download CV</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 4v12m0 0l-4-4m4 4l4-4M4 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </a>
                     </div>
                 </div>
                 <div class="hero-right">
                     <div class="profile-glow-wrapper">
-                        <img src="public/images/foto-profil.png" alt="Muhammad Arif" class="hero-profile-img">
+                        <div class="profile-border-animated"></div>
+                        <img src="public/images/foto-profile.png" alt="Muhammad Arif" class="hero-profile-img">
+                        <div class="corner-accent top-left"></div>
+                        <div class="corner-accent top-right"></div>
+                        <div class="corner-accent bottom-left"></div>
+                        <div class="corner-accent bottom-right"></div>
                     </div>
-                    <div class="code-box">
+                    <div class="code-box cyber-chamfer card-shine">
                         <div class="code-header">
                             <span class="code-dot red"></span>
                             <span class="code-dot yellow"></span>
@@ -72,7 +99,7 @@
   <span class="code-prop">role</span>: <span class="code-string">'Founder & COO'</span>,
   <span class="code-prop">company</span>: <span class="code-string">'Shift Digital Indonesia'</span>,
   <span class="code-prop">gpa</span>: <span class="code-string">'3.67/4.00'</span>,
-  <span class="code-prop">skills</span>: [<span class="code-string">'PHP'</span>, <span class="code-string">'Laravel'</span>, <span class="code-string">'JavaScript'</span>],
+  <span class="code-prop">skills</span>: [<span class="code-string">'PHP'</span>, <span class="code-string">'Laravel'</span>, <span class="code-string">'Vue.js'</span>],
   <span class="code-prop">status</span>: <span class="code-string">'Open for Internship'</span>
 };</code></pre>
                     </div>
@@ -82,19 +109,18 @@
 
         <!-- Roles & Experience Section -->
         <section id="roles" class="roles-section section-reveal">
-            <h2 class="section-title">Roles & Experience</h2>
-            <p class="section-subtitle">Leadership positions and professional journey</p>
+            <h2 class="section-title"><span class="section-tag">&lt;section&gt;</span> Roles & Experience</h2>
+            <p class="section-subtitle"><span class="text-accent">// </span>Leadership positions and professional journey</p>
             <div class="roles-grid">
-                <!-- Role Card 1 -->
-                <div class="role-card">
-                    <div class="role-icon">
+                <div class="role-card cyber-chamfer card-shine">
+                    <div class="role-icon cyber-chamfer-sm">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" stroke="#2F2FE4" stroke-width="2"/>
-                            <circle cx="24" cy="24" r="8" fill="#2F2FE4"/>
+                            <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" stroke="#00ff88" stroke-width="1.5"/>
+                            <circle cx="24" cy="24" r="8" fill="#00ff88"/>
                         </svg>
                     </div>
                     <h3 class="role-title">Founder & COO</h3>
-                    <p class="role-company">Shift Digital Indonesia | Jan 2026 - Present</p>
+                    <p class="role-company"><span class="terminal-prefix-sm">&gt;</span> Shift Digital Indonesia | Jan 2026 - Present</p>
                     <p class="role-description">
                         Sebagai leader technology dan pengerjaan website. Memimpin operasional agency, 
                         manajemen klien, dan proyek transformasi digital.
@@ -103,48 +129,47 @@
                         <span class="tag">Leadership</span>
                         <span class="tag">Web Development</span>
                         <span class="tag">Technology</span>
+                        <span class="tag">Koordinator</span>
                     </div>
                 </div>
 
-                <!-- Role Card 2 -->
-                <div class="role-card">
-                    <div class="role-icon">
+                <div class="role-card cyber-chamfer card-shine">
+                    <div class="role-icon cyber-chamfer-sm">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="8" y="8" width="32" height="32" rx="4" stroke="#2F2FE4" stroke-width="2"/>
-                            <path d="M16 24h16M24 16v16" stroke="#2F2FE4" stroke-width="2"/>
+                            <rect x="8" y="8" width="32" height="32" rx="2" stroke="#ff00ff" stroke-width="1.5"/>
+                            <path d="M16 24h16M24 16v16" stroke="#ff00ff" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <h3 class="role-title">Koordinator Daerah Kalimantan Selatan</h3>
-                    <p class="role-company">PERMIKOMNAS | Feb 2026 - Present</p>
+                    <p class="role-company"><span class="terminal-prefix-sm">&gt;</span> PERMIKOMNAS | Feb 2026 - Present</p>
                     <p class="role-description">
                         Memimpin dan mengoordinasikan pergerakan serta kolaborasi Himpunan Mahasiswa IT dari berbagai 
                         perguruan tinggi se-Kalimantan Selatan. Menginisiasi program kerja dan mensupervisi 4 departemen utama.
                     </p>
                     <div class="role-tags">
-                        <span class="tag">4 Departemen</span>
-                        <span class="tag">Koordinasi</span>
-                        <span class="tag">Kolaborasi</span>
+                        <span class="tag tag-secondary">4 Departemen</span>
+                        <span class="tag tag-secondary">Koordinasi</span>
+                        <span class="tag tag-secondary">Kolaborasi</span>
                     </div>
                 </div>
 
-                <!-- Role Card 3 -->
-                <div class="role-card">
-                    <div class="role-icon">
+                <div class="role-card cyber-chamfer card-shine">
+                    <div class="role-icon cyber-chamfer-sm">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="16" stroke="#2F2FE4" stroke-width="2"/>
-                            <path d="M24 12v12l8 4" stroke="#2F2FE4" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="16" stroke="#00d4ff" stroke-width="1.5"/>
+                            <path d="M24 12v12l8 4" stroke="#00d4ff" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <h3 class="role-title">Koordinator PSDM</h3>
-                    <p class="role-company">HIMA TI Politeknik Hasnur | Feb 2026 - Present</p>
+                    <p class="role-company"><span class="terminal-prefix-sm">&gt;</span> HIMA TI Politeknik Hasnur | Feb 2026 - Present</p>
                     <p class="role-description">
                         Memimpin departemen Pengembangan Sumber Daya Mahasiswa. Bertanggung jawab atas manajemen SDM, 
                         evaluasi kinerja, dan resolusi konflik internal. Menginisiasi program pelatihan strategis berbasis praktik.
                     </p>
                     <div class="role-tags">
-                        <span class="tag">Manajemen SDM</span>
-                        <span class="tag">Training</span>
-                        <span class="tag">Development</span>
+                        <span class="tag tag-tertiary">Manajemen SDM</span>
+                        <span class="tag tag-tertiary">Training</span>
+                        <span class="tag tag-tertiary">Development</span>
                     </div>
                 </div>
             </div>
@@ -152,21 +177,25 @@
 
         <!-- Education Section -->
         <section id="education" class="education-section section-reveal">
-            <h2 class="section-title">Education</h2>
-            <p class="section-subtitle">Academic background and achievements</p>
+            <h2 class="section-title"><span class="section-tag">&lt;section&gt;</span> Education</h2>
+            <p class="section-subtitle"><span class="text-accent-secondary">// </span>Academic background and achievements</p>
             <div class="education-container">
-                <div class="education-card">
-                    <div class="education-icon">
+                <div class="education-card cyber-chamfer holographic card-shine">
+                    <div class="corner-accent top-left"></div>
+                    <div class="corner-accent top-right"></div>
+                    <div class="corner-accent bottom-left"></div>
+                    <div class="corner-accent bottom-right"></div>
+                    <div class="education-icon cyber-chamfer-sm">
                         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                            <path d="M32 8L56 20V44L32 56L8 44V20L32 8Z" stroke="#2F2FE4" stroke-width="2"/>
-                            <path d="M32 20L44 26V38L32 44L20 38V26L32 20Z" fill="#2F2FE4"/>
-                            <circle cx="32" cy="32" r="4" fill="#ffffff"/>
+                            <path d="M32 8L56 20V44L32 56L8 44V20L32 8Z" stroke="#00ff88" stroke-width="1.5"/>
+                            <path d="M32 20L44 26V38L32 44L20 38V26L32 20Z" fill="#00ff88"/>
+                            <circle cx="32" cy="32" r="4" fill="#0a0a0f"/>
                         </svg>
                     </div>
                     <div class="education-content">
                         <h3 class="education-degree">D3 Teknik Informatika</h3>
-                        <p class="education-school">Politeknik Hasnur</p>
-                        <p class="education-period">Sep 2024 - Sep 2027 (Expected)</p>
+                        <p class="education-school"><span class="terminal-prefix-sm">&gt;</span> Politeknik Hasnur</p>
+                        <p class="education-period"><span class="text-muted">[</span>Sep 2024 - Sep 2027 (Expected)<span class="text-muted">]</span></p>
                         <div class="education-gpa">
                             <span class="gpa-label">GPA:</span>
                             <span class="gpa-value">3.67/4.00</span>
@@ -188,57 +217,218 @@
 
         <!-- Tech Stack Section -->
         <section id="tech" class="tech-section section-reveal">
-            <h2 class="section-title">Tech Stack & Skills</h2>
-            <p class="section-subtitle">Technologies and tools I work with</p>
+            <h2 class="section-title"><span class="section-tag">&lt;section&gt;</span> Tech Stack & Skills</h2>
+            <p class="section-subtitle"><span class="text-accent-tertiary">// </span>Technologies and tools I work with</p>
+            
+            <!-- Skill Proficiency Bars -->
+            <div class="skill-bars-container">
+                <div class="skill-bar-item" data-skill="PHP" data-level="85">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">PHP</span>
+                        <span class="skill-bar-percent">85%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="--fill-width: 85%; --bar-color: #00ff88;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item" data-skill="Laravel" data-level="75">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Laravel</span>
+                        <span class="skill-bar-percent">75%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="--fill-width: 75%; --bar-color: #ff00ff;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item" data-skill="JavaScript" data-level="80">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">JavaScript</span>
+                        <span class="skill-bar-percent">80%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="--fill-width: 80%; --bar-color: #00d4ff;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item" data-skill="Vue.js" data-level="60">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Vue.js</span>
+                        <span class="skill-bar-percent">60%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="--fill-width: 60%; --bar-color: #42b883;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item" data-skill="HTML/CSS" data-level="90">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">HTML / CSS</span>
+                        <span class="skill-bar-percent">90%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="--fill-width: 90%; --bar-color: #00ff88;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item" data-skill="MySQL" data-level="70">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">MySQL</span>
+                        <span class="skill-bar-percent">70%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="--fill-width: 70%; --bar-color: #ff00ff;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item" data-skill="Tailwind CSS" data-level="65">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Tailwind CSS</span>
+                        <span class="skill-bar-percent">65%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="--fill-width: 65%; --bar-color: #38bdf8;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Cards Grid (Image Icons) -->
             <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">💻</div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-php.png" alt="PHP" class="tech-icon-img">
+                    </div>
                     <h3 class="tech-name">PHP</h3>
-                    <p class="tech-level">Advanced</p>
+                    <p class="tech-level"><span class="text-accent">[</span>Advanced<span class="text-accent">]</span></p>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">🚀</div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-laravel.png" alt="Laravel" class="tech-icon-img">
+                    </div>
                     <h3 class="tech-name">Laravel</h3>
-                    <p class="tech-level">Framework</p>
+                    <p class="tech-level"><span class="text-accent-secondary">[</span>Framework<span class="text-accent-secondary">]</span></p>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">⚡</div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-javascript.png" alt="JavaScript" class="tech-icon-img">
+                    </div>
                     <h3 class="tech-name">JavaScript</h3>
-                    <p class="tech-level">Advanced</p>
+                    <p class="tech-level"><span class="text-accent-tertiary">[</span>Advanced<span class="text-accent-tertiary">]</span></p>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">📄</div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-Vue.png" alt="Vue.js" class="tech-icon-img">
+                    </div>
+                    <h3 class="tech-name">Vue.js</h3>
+                    <p class="tech-level"><span class="text-accent">[</span>Framework<span class="text-accent">]</span></p>
+                </div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-tailwind.png" alt="Tailwind CSS" class="tech-icon-img">
+                    </div>
+                    <h3 class="tech-name">Tailwind CSS</h3>
+                    <p class="tech-level"><span class="text-accent-tertiary">[</span>Utility CSS<span class="text-accent-tertiary">]</span></p>
+                </div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-inertia.png" alt="Inertia.js" class="tech-icon-img">
+                    </div>
+                    <h3 class="tech-name">Inertia.js</h3>
+                    <p class="tech-level"><span class="text-accent-secondary">[</span>SPA Bridge<span class="text-accent-secondary">]</span></p>
+                </div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-html.png" alt="HTML" class="tech-icon-img">
+                    </div>
                     <h3 class="tech-name">HTML</h3>
-                    <p class="tech-level">Expert</p>
+                    <p class="tech-level"><span class="text-accent">[</span>Expert<span class="text-accent">]</span></p>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">🎨</div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-css.jpg" alt="CSS" class="tech-icon-img">
+                    </div>
                     <h3 class="tech-name">CSS</h3>
-                    <p class="tech-level">Expert</p>
+                    <p class="tech-level"><span class="text-accent-secondary">[</span>Expert<span class="text-accent-secondary">]</span></p>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">🗄️</div>
+                <div class="tech-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <img src="public/images/foto-mysql.png" alt="MySQL" class="tech-icon-img">
+                    </div>
                     <h3 class="tech-name">MySQL</h3>
-                    <p class="tech-level">Database</p>
+                    <p class="tech-level"><span class="text-accent-tertiary">[</span>Database<span class="text-accent-tertiary">]</span></p>
                 </div>
-                <div class="tech-card special-card">
-                    <div class="tech-icon">✨</div>
+                <div class="tech-card special-card cyber-chamfer">
+                    <div class="tech-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"/>
+                        </svg>
+                    </div>
                     <h3 class="tech-name">Vibe Coding & AI-Assisted Development</h3>
-                    <p class="tech-level">Modern Gen Z Efficiency</p>
-                    <div class="special-badge">Featured</div>
+                    <p class="tech-level"><span class="text-accent">[</span>Modern Gen Z Efficiency<span class="text-accent">]</span></p>
+                    <div class="special-badge">FEATURED</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial / Quote Section -->
+        <section id="testimonial" class="testimonial-section section-reveal">
+            <h2 class="section-title"><span class="section-tag">&lt;section&gt;</span> What They Say</h2>
+            <p class="section-subtitle"><span class="text-accent">// </span>Feedback from colleagues and mentors</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card cyber-chamfer card-shine">
+                    <div class="testimonial-terminal-bar">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="code-title">testimonial.sh</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <span class="terminal-prefix-sm">&gt;</span>
+                        <p class="testimonial-quote">"Arif memiliki kemampuan leadership yang luar biasa. Sebagai COO, dia mampu mengkoordinasikan tim dengan efektif dan selalu menghasilkan work yang berkualitas tinggi."</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-name">-- Rekan Kerja</span>
+                            <span class="testimonial-role">Shift Digital Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card cyber-chamfer card-shine">
+                    <div class="testimonial-terminal-bar">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="code-title">testimonial.sh</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <span class="terminal-prefix-sm">&gt;</span>
+                        <p class="testimonial-quote">"Sebagai Koordinator Daerah, Arif berhasil membangun kolaborasi antar Himpunan Mahasiswa IT se-Kalsel dengan pendekatan yang inovatif dan terstruktur."</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-name">-- Pengurus PERMIKOMNAS</span>
+                            <span class="testimonial-role">Kalimantan Selatan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card cyber-chamfer card-shine">
+                    <div class="testimonial-terminal-bar">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="code-title">testimonial.sh</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <span class="terminal-prefix-sm">&gt;</span>
+                        <p class="testimonial-quote">"Dengan IPK 3.67 dan aktif di berbagai organisasi, Arif membuktikan bahwa mahasiswa bisa balance antara akademik dan pengalaman organisasi yang meaningful."</p>
+                        <div class="testimonial-author">
+                            <span class="testimonial-name">-- Mahasiswa</span>
+                            <span class="testimonial-role">Politeknik Hasnur</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Featured Projects Section -->
         <section id="projects" class="projects-section section-reveal">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Showcasing impactful work and solutions</p>
+            <h2 class="section-title"><span class="section-tag">&lt;section&gt;</span> Featured Projects</h2>
+            <p class="section-subtitle"><span class="text-accent">// </span>Showcasing impactful work and solutions</p>
             <div class="projects-grid">
-                <!-- Project 1: LMS Pondok Pesantren -->
-                <div class="project-card">
+                <div class="project-card cyber-chamfer card-shine">
                     <div class="project-content">
-                        <h3 class="project-title">LMS Pondok Pesantren Mahad Islam Ulumul Quran</h3>
+                        <h3 class="project-title"><span class="text-accent">&gt;</span> LMS Pondok Pesantren Mahad Islam Ulumul Quran</h3>
                         <p class="project-description">
                             Website Learning Management System (LMS) yang dibuat untuk Pondok Pesantren Mahad Islam Ulumul Quran. 
                             Sistem ini membantu sekolah dalam mengelola pembelajaran online, materi pelajaran, dan tracking progress siswa.
@@ -262,10 +452,9 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Game Quiz Website -->
-                <div class="project-card">
+                <div class="project-card cyber-chamfer card-shine">
                     <div class="project-content">
-                        <h3 class="project-title">Website Game Quiz - Spinotek Vibecoding Hackathon Vol. 02</h3>
+                        <h3 class="project-title"><span class="text-accent-secondary">&gt;</span> Website Game Quiz - Spinotek Vibecoding Hackathon Vol. 02</h3>
                         <p class="project-description">
                             Website game yang dikombinasikan dengan quiz, dibuat sebagai peserta Spinotek Vibecoding Hackathon Vol. 02. 
                             Menggabungkan elemen gamifikasi dengan pembelajaran interaktif.
@@ -294,19 +483,19 @@
         <!-- Contact Section -->
         <section id="contact" class="contact-section section-reveal">
             <div class="contact-container">
-                <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-subtitle">Ready to bring your ideas to life</p>
+                <h2 class="section-title"><span class="section-tag">&lt;section&gt;</span> Let's Work Together</h2>
+                <p class="section-subtitle"><span class="text-accent-tertiary">// </span>Ready to bring your ideas to life</p>
                 <div class="contact-grid">
-                    <a href="mhmmd.arif.polhas@gmail.com" class="contact-card">
+                    <a href="mailto:mhmmd.arif.polhas@gmail.com" class="contact-card cyber-chamfer magnetic-element card-shine">
                         <div class="contact-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <path d="M4 8l12 8 12-8M4 24V8l12 8 12-8v16H4z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M4 8l12 8 12-8M4 24V8l12 8 12-8v16H4z" stroke="currentColor" stroke-width="1.5"/>
                             </svg>
                         </div>
                         <h3>Email</h3>
                         <p>mhmmd.arif.polhas@gmail.com</p>
                     </a>
-                    <a href="https://github.com/agatha-05" target="_blank" class="contact-card">
+                    <a href="https://github.com/agatha-05" target="_blank" class="contact-card cyber-chamfer magnetic-element card-shine">
                         <div class="contact-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
                                 <path d="M16 2a14 14 0 00-4.43 27.28c.7.13.96-.3.96-.67v-2.38c-3.89.84-4.71-1.88-4.71-1.88a3.71 3.71 0 00-1.56-2.05c-1.27-.87.1-.85.1-.85a2.94 2.94 0 012.14 1.45 3 3 0 004.08 1.16 2.93 2.93 0 01.88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4 5.4 0 011.44-3.76 5 5 0 01.14-3.7s1.17-.38 3.85 1.43a13.3 13.3 0 017 0c2.67-1.81 3.84-1.43 3.84-1.43a5 5 0 01.14 3.7 5.4 5.4 0 011.44 3.76c0 5.38-3.27 6.56-6.39 6.91a3.33 3.33 0 01.95 2.59v3.84c0 .46.25.81.96.67A14 14 0 0016 2z"/>
@@ -315,7 +504,7 @@
                         <h3>GitHub</h3>
                         <p>agatha-05</p>
                     </a>
-                    <a href="https://linkedin.com/in/muhammad-arif-b0826a3aa" target="_blank" class="contact-card">
+                    <a href="https://linkedin.com/in/muhammad-arif-b0826a3aa" target="_blank" class="contact-card cyber-chamfer magnetic-element card-shine">
                         <div class="contact-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
                                 <path d="M8.64 28H3.36V11.2h5.28V28zM6 9.28A3.07 3.07 0 119.07 6.2 3.07 3.07 0 016 9.28zM28 28h-5.27v-8.16c0-1.95 0-4.46-2.72-4.46s-3.14 2.12-3.14 4.32V28h-5.28V11.2h5.07v2.3h.07a5.56 5.56 0 015-2.75c5.35 0 6.34 3.52 6.34 8.1V28z"/>
@@ -324,7 +513,7 @@
                         <h3>LinkedIn</h3>
                         <p>Muhammad Arif</p>
                     </a>
-                    <a href="https://wa.me/+62 83159472577" target="_blank" class="contact-card">
+                    <a href="https://wa.me/+6283159472577" target="_blank" class="contact-card cyber-chamfer magnetic-element card-shine">
                         <div class="contact-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
                                 <path d="M16 2C8.28 2 2 8.28 2 16c0 2.52.68 4.88 1.86 6.92L2 30l7.24-1.9A13.95 13.95 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.21 19.38c-.3.84-1.47 1.54-2.41 1.75-.64.14-1.48.25-4.3-.92-3.6-1.5-5.92-5.18-6.1-5.42-.17-.24-1.43-1.9-1.43-3.63s.91-2.57 1.23-2.92c.32-.35.7-.44 1.02-.44.25 0 .48.01.69.01.22 0 .52-.08.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.35.93 1.54 2 2.49 1.38 1.23 2.54 1.61 2.9 1.79.35.18.56.15.77-.09.21-.24.9-1.05 1.14-1.41.24-.35.48-.29.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.71z"/>
@@ -340,25 +529,25 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Muhammad Arif. Built with passion and modern web technologies.</p>
+        <p><span class="terminal-prefix-sm">&gt;</span> &copy; 2026 Muhammad Arif. <span class="text-muted">Built with</span> <span class="text-accent">passion</span> <span class="text-muted">and modern web technologies.</span></p>
     </footer>
 
     <!-- Floating Action Buttons -->
     <div class="fab-container">
-        <button class="fab" id="zenModeBtn" title="Toggle Zen Mode">
+        <button class="fab cyber-chamfer-sm" id="zenModeBtn" title="Toggle Zen Mode">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="currentColor" stroke-width="1.5"/>
             </svg>
         </button>
-        <button class="fab" id="themeToggleBtn" title="Toggle Theme">
+        <button class="fab cyber-chamfer-sm" id="themeToggleBtn" title="Toggle Theme">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
-                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2"/>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5"/>
             </svg>
         </button>
-        <button class="fab" id="backToTopBtn" title="Back to Top">
+        <button class="fab cyber-chamfer-sm" id="backToTopBtn" title="Back to Top">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 19V5m0 0l-7 7m7-7l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 19V5m0 0l-7 7m7-7l7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
         </button>
     </div>
@@ -369,3 +558,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
