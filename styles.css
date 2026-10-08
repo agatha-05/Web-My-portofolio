@@ -1320,6 +1320,41 @@ section {
         var(--glow-secondary);
 }
 
+.project-card:nth-child(3)::before,
+.project-card:nth-child(6)::before {
+    background: var(--accent-tertiary);
+}
+
+.project-card:nth-child(4)::before {
+    background: var(--accent);
+}
+
+.project-card:nth-child(5)::before {
+    background: var(--accent-secondary);
+}
+
+.project-card:nth-child(3):hover,
+.project-card:nth-child(6):hover {
+    border-color: var(--accent-tertiary);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        var(--glow-tertiary);
+}
+
+.project-card:nth-child(4):hover {
+    border-color: var(--accent);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        var(--glow-neon);
+}
+
+.project-card:nth-child(5):hover {
+    border-color: var(--accent-secondary);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        var(--glow-secondary);
+}
+
 .project-title {
     font-family: 'Orbitron', monospace;
     font-size: 1.4rem;
