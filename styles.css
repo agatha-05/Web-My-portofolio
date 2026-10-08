@@ -890,6 +890,46 @@ section {
     color: var(--accent-tertiary);
 }
 
+/* ===== ORGANIZATION SECTION ===== */
+.organization-section .roles-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.organization-section .role-card {
+    border-color: var(--org-color-border, var(--border));
+}
+
+.organization-section .role-card::before {
+    background: linear-gradient(90deg, var(--org-color, var(--accent)), transparent);
+    opacity: 1;
+}
+
+.organization-section .role-card:hover {
+    border-color: var(--org-color, var(--accent));
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 18px var(--org-color-border, rgba(0, 255, 136, 0.35)),
+        0 0 45px var(--org-color-soft, rgba(0, 255, 136, 0.18));
+}
+
+.organization-section .role-icon {
+    background: var(--org-color-soft, rgba(0, 255, 136, 0.08));
+    border-color: var(--org-color-border, rgba(0, 255, 136, 0.2));
+}
+
+.organization-section .role-card:hover .role-icon {
+    box-shadow: 0 0 16px var(--org-color-border, rgba(0, 255, 136, 0.4));
+}
+
+.organization-section .role-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.organization-section .role-title {
+    font-size: 1.1rem;
+}
+
 /* ===== TECH SECTION ===== */
 .tech-grid {
     display: grid;
@@ -908,28 +948,94 @@ section {
     position: relative;
 }
 
-.tech-card:hover {
-    transform: translateY(-8px) scale(1.03);
+/* Brand-color glow per tech card (order: PHP, Laravel, JS, Vue, Tailwind, Inertia, HTML, CSS, MySQL) */
+/* PHP - indigo purple */
+.tech-card:nth-child(1):hover {
+    border-color: #777BB4;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(119, 123, 180, 0.6),
+        0 0 24px rgba(119, 123, 180, 0.35);
+}
+
+/* Laravel - red */
+.tech-card:nth-child(2):hover {
+    border-color: #FF2D20;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(255, 45, 32, 0.6),
+        0 0 24px rgba(255, 45, 32, 0.35);
+}
+
+/* JavaScript - yellow */
+.tech-card:nth-child(3):hover {
+    border-color: #F7DF1E;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(247, 223, 30, 0.6),
+        0 0 24px rgba(247, 223, 30, 0.35);
+}
+
+/* Vue.js - green */
+.tech-card:nth-child(4):hover {
+    border-color: #42B883;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(66, 184, 131, 0.6),
+        0 0 24px rgba(66, 184, 131, 0.35);
+}
+
+/* Tailwind CSS - sky blue */
+.tech-card:nth-child(5):hover {
+    border-color: #38BDF8;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(56, 189, 248, 0.6),
+        0 0 24px rgba(56, 189, 248, 0.35);
+}
+
+/* Inertia.js - purple */
+.tech-card:nth-child(6):hover {
+    border-color: #9553E9;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(149, 83, 233, 0.6),
+        0 0 24px rgba(149, 83, 233, 0.35);
+}
+
+/* HTML - orange */
+.tech-card:nth-child(7):hover {
+    border-color: #E34F26;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(227, 79, 38, 0.6),
+        0 0 24px rgba(227, 79, 38, 0.35);
+}
+
+/* CSS - blue */
+.tech-card:nth-child(8):hover {
+    border-color: #1572B6;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(21, 114, 182, 0.6),
+        0 0 24px rgba(21, 114, 182, 0.35);
+}
+
+/* MySQL - teal/orange */
+.tech-card:nth-child(9):hover {
+    border-color: #F29111;
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(242, 145, 17, 0.6),
+        0 0 24px rgba(242, 145, 17, 0.35);
+}
+
+/* Special card keeps animated green border */
+.tech-card.special-card:hover {
     border-color: var(--accent);
     box-shadow:
         0 16px 50px rgba(0, 0, 0, 0.5),
-        var(--glow-neon);
-}
-
-.tech-card:nth-child(2):hover,
-.tech-card:nth-child(5):hover {
-    border-color: var(--accent-secondary);
-    box-shadow:
-        0 16px 50px rgba(0, 0, 0, 0.5),
-        var(--glow-secondary);
-}
-
-.tech-card:nth-child(3):hover,
-.tech-card:nth-child(6):hover {
-    border-color: var(--accent-tertiary);
-    box-shadow:
-        0 16px 50px rgba(0, 0, 0, 0.5),
-        var(--glow-tertiary);
+        var(--glow-neon-lg);
 }
 
 .tech-icon {
@@ -946,29 +1052,40 @@ section {
     width: 56px;
     height: 56px;
     object-fit: contain;
-    filter: drop-shadow(0 0 6px rgba(0, 255, 136, 0.3));
     transition: all var(--transition-normal);
 }
 
 .tech-card:hover .tech-icon-img {
     transform: scale(1.15);
-    filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.6));
 }
 
-.tech-card:nth-child(2):hover .tech-icon-img,
-.tech-card:nth-child(5):hover .tech-icon-img,
-.tech-card:nth-child(8):hover .tech-icon-img {
-    filter: drop-shadow(0 0 12px rgba(255, 0, 255, 0.6));
+/* Brand-color icon glow matching each logo */
+.tech-card:nth-child(1):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(119, 123, 180, 0.7));
 }
-
-.tech-card:nth-child(3):hover .tech-icon-img,
-.tech-card:nth-child(6):hover .tech-icon-img,
-.tech-card:nth-child(9):hover .tech-icon-img {
-    filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.6));
+.tech-card:nth-child(2):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(255, 45, 32, 0.7));
 }
-
+.tech-card:nth-child(3):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(247, 223, 30, 0.7));
+}
 .tech-card:nth-child(4):hover .tech-icon-img {
-    filter: drop-shadow(0 0 12px rgba(66, 184, 131, 0.6));
+    filter: drop-shadow(0 0 12px rgba(66, 184, 131, 0.7));
+}
+.tech-card:nth-child(5):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.7));
+}
+.tech-card:nth-child(6):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(149, 83, 233, 0.7));
+}
+.tech-card:nth-child(7):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(227, 79, 38, 0.7));
+}
+.tech-card:nth-child(8):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(21, 114, 182, 0.7));
+}
+.tech-card:nth-child(9):hover .tech-icon-img {
+    filter: drop-shadow(0 0 12px rgba(242, 145, 17, 0.7));
 }
 
 .tech-card:hover .tech-icon {
@@ -1855,6 +1972,26 @@ body.zen-mode .scroll-progress {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1280px) {
+    .nav-link {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+    }
+    
+    .nav-menu {
+        gap: 0;
+    }
+    
+    .clock-label {
+        display: none;
+    }
+    
+    .nav-right {
+        gap: 1rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-container {
         grid-template-columns: 1fr;
@@ -2000,7 +2137,8 @@ body.zen-mode .scroll-progress {
         margin-bottom: 2.5rem;
     }
     
-    .roles-section {
+    .roles-section,
+    .organization-section {
         padding: 3rem 1rem;
     }
     
