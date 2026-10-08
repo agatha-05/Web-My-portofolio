@@ -77,13 +77,13 @@ class UniverseCanvas {
             if (isLight) {
                 switch(star.color) {
                     case 'green':
-                        starColor = `rgba(0, 180, 90, ${currentOpacity * 0.6})`;
+                        starColor = `rgba(5, 150, 105, ${currentOpacity * 0.6})`;
                         break;
                     case 'magenta':
-                        starColor = `rgba(180, 0, 180, ${currentOpacity * 0.6})`;
+                        starColor = `rgba(219, 39, 119, ${currentOpacity * 0.6})`;
                         break;
                     case 'cyan':
-                        starColor = `rgba(0, 150, 180, ${currentOpacity * 0.6})`;
+                        starColor = `rgba(8, 145, 178, ${currentOpacity * 0.6})`;
                         break;
                     default:
                         starColor = `rgba(100, 116, 139, ${currentOpacity * 0.7})`;
@@ -165,7 +165,7 @@ class UniverseCanvas {
             );
             
             const particleColor = isLight 
-                ? `hsla(${particle.hue}, 70%, 50%, ${particle.opacity * scale})`
+                ? `hsla(${particle.hue}, 65%, 42%, ${particle.opacity * scale})`
                 : `hsla(${particle.hue}, 100%, 65%, ${particle.opacity * scale})`;
             
             gradient.addColorStop(0, particleColor);
@@ -177,7 +177,7 @@ class UniverseCanvas {
             this.ctx.fill();
             
             this.ctx.fillStyle = isLight 
-                ? `hsla(${particle.hue}, 80%, 50%, ${particle.opacity * scale})`
+                ? `hsla(${particle.hue}, 70%, 45%, ${particle.opacity * scale})`
                 : `hsla(${particle.hue}, 100%, 80%, ${particle.opacity * scale})`;
             this.ctx.beginPath();
             this.ctx.arc(particle.x, particle.y, projectedSize, 0, Math.PI * 2);
@@ -194,7 +194,7 @@ class UniverseCanvas {
                 if (distance < 100) {
                     const opacity = (1 - distance / 100) * 0.15;
                     this.ctx.strokeStyle = isLight 
-                        ? `rgba(0, 180, 90, ${opacity})`
+                        ? `rgba(5, 150, 105, ${opacity})`
                         : `rgba(0, 255, 136, ${opacity})`;
                     this.ctx.lineWidth = 0.5;
                     this.ctx.beginPath();
@@ -210,7 +210,7 @@ class UniverseCanvas {
         this.time++;
         
         const isLight = document.body.classList.contains('light-theme');
-        const bgColor = isLight ? 'rgba(240, 242, 245, 0.1)' : 'rgba(10, 10, 15, 0.1)';
+        const bgColor = isLight ? 'rgba(247, 248, 250, 0.1)' : 'rgba(10, 10, 15, 0.1)';
         
         this.ctx.fillStyle = bgColor;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
